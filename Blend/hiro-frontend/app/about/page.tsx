@@ -1,228 +1,163 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { FaLeaf, FaHandshake, FaLightbulb, FaStar } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function AboutPage() {
   return (
-    <main className="bg-white text-gray-800">
-      {/* About Hiro Section */}
-      <section className="py-20 bg-[#f9fafc]">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6 md:px-12 items-center">
+    <main className="font-['Figtree'] relative">
+
+      {/* Hero Section */}
+      <section className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] flex items-center justify-center bg-gradient-to-r from-[#FF6600]/70 via-[#FF8533]/50 to-[#FF6600]/70 overflow-hidden px-4 sm:px-6">
+        {/* Background shapes */}
+        <div className="absolute -top-32 -left-32 w-64 sm:w-96 h-64 sm:h-96 bg-[#ffffff20] rounded-full filter blur-3xl animate-pulse-slow"></div>
+        <div className="absolute -bottom-32 -right-32 w-64 sm:w-96 h-64 sm:h-96 bg-[#ffffff20] rounded-full filter blur-3xl animate-ping-slow"></div>
+
+        <Image
+          src="/about-hero.jpg"
+          alt="Blend Events Hero"
+          fill
+          className="object-cover object-center absolute inset-0 -z-10"
+        />
+        <div className="text-center px-4 sm:px-6 md:px-12 z-10">
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-lg"
+          >
+            About Blend
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2 }}
+            className="text-white mt-3 sm:mt-4 md:mt-6 text-base sm:text-lg md:text-xl max-w-3xl mx-auto drop-shadow"
+          >
+            Crafting unforgettable events, building brands, and creating experiences that leave a lasting impact.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Our Story Section */}
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50 relative overflow-hidden">
+        {/* Background shapes */}
+        <div className="absolute -top-16 -right-16 w-56 sm:w-72 h-56 sm:h-72 bg-[#FF6600]/10 rounded-full filter blur-3xl"></div>
+        <div className="absolute -bottom-16 -left-16 w-64 sm:w-80 h-64 sm:h-80 bg-[#FF8533]/10 rounded-full filter blur-3xl"></div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold text-[#001f3f] mb-4 sm:mb-6">Our Story</h2>
+            <p className="text-gray-700 text-base sm:text-lg md:text-lg leading-relaxed mb-3 sm:mb-4">
+              Blend was founded with the vision to transform the event planning and creative marketing landscape in Kenya. From humble beginnings to becoming a trusted partner for unforgettable events, we specialize in crafting experiences that connect people, build brands, and inspire creativity.
+            </p>
+            <p className="text-gray-700 text-base sm:text-lg md:text-lg leading-relaxed">
+              With every event we plan, every strategy we build, and every campaign we create, we put passion, precision, and creativity at the heart of everything we do.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative w-full h-64 sm:h-80 md:h-[400px] rounded-2xl overflow-hidden shadow-lg"
           >
             <Image
-              src="/about.jpeg"
-              alt="Hiro Catering Team"
-              width={600}
-              height={400}
-              className="rounded-2xl shadow-lg object-cover"
+              src="/our-story.jpg"
+              alt="Our Story"
+              fill
+              className="object-cover object-center"
             />
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#001f3f]">
-              About Hiro Catering
-            </h2>
-            <p className="text-gray-600 leading-relaxed">
-              Hiro Catering is built on a passion for fine dining, hospitality, and unforgettable service. 
-              We combine creativity and professionalism to deliver world-class catering for every occasion — 
-              from intimate gatherings to grand corporate events.
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              Our philosophy is simple: great food, exceptional presentation, and warm service. 
-              Every dish we serve carries the taste of dedication and artistry from our chefs.
-            </p>
-          </motion.div>
         </div>
       </section>
 
-      {/* Our Story */}
-      <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-6 md:px-12 text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl md:text-4xl font-bold text-[#001f3f] mb-6"
-          >
-            Our Story
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9 }}
-            className="text-gray-700 max-w-3xl mx-auto leading-relaxed"
-          >
-            Hiro Catering began as a small passion project with a single mission — to elevate the catering experience in Kenya. 
-            Through creativity, commitment, and excellence, we’ve grown into one of the most trusted catering brands known 
-            for innovation, elegance, and consistency. 
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-gray-700 max-w-3xl mx-auto leading-relaxed mt-4"
-          >
-            Our team of culinary experts, planners, and service professionals share one goal: to turn every event 
-            into an unforgettable experience — one plate, one smile at a time.
-          </motion.p>
+      {/* Sustainability & Impact Section */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white relative overflow-hidden">
+        {/* Background shapes */}
+        <div className="absolute -top-32 -left-32 w-64 sm:w-80 h-64 sm:h-80 bg-[#FF6600]/10 rounded-full filter blur-3xl animate-pulse-slow"></div>
+        <div className="absolute -bottom-32 -right-32 w-64 sm:w-80 h-64 sm:h-80 bg-[#FF8533]/10 rounded-full filter blur-3xl animate-ping-slow"></div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 text-center mb-8 sm:mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold text-[#001f3f] mb-3 sm:mb-4">Sustainability & Impact</h2>
+          <p className="text-gray-700 text-base sm:text-lg md:text-lg max-w-3xl mx-auto leading-relaxed">
+            At Blend, we believe in responsible event planning and marketing. We aim to reduce environmental impact, support local communities, and ensure our operations contribute positively to society. Every decision we make, from materials to partnerships, aligns with our commitment to sustainability and meaningful impact.
+          </p>
         </div>
-      </section>
 
-      {/* Sustainability & Community Impact */}
-      <section className="py-20 bg-gradient-to-b from-white to-[#f3f9f6] text-gray-800">
-        <div className="max-w-6xl mx-auto px-6 md:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#001f3f] mb-4">
-              Sustainability & Impact
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              At Hiro Catering, we believe in serving not just meals — but also our community and planet.
-              Our sustainability journey focuses on eco-friendly practices, local sourcing, and community upliftment.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Text Content */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+          {[
+            { icon: <FaLeaf size={30} />, title: "Eco-Friendly Practices", description: "Using sustainable materials and minimizing waste in every event." },
+            { icon: <FaHandshake size={30} />, title: "Community Support", description: "Partnering with local businesses and giving back to communities." },
+            { icon: <FaLightbulb size={30} />, title: "Innovative Solutions", description: "Creative approaches that leave lasting impressions while staying sustainable." }
+          ].map((item, idx) => (
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-6"
+              key={idx}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: idx * 0.2 }}
+              className="bg-gray-50 rounded-2xl shadow-lg p-6 sm:p-8 text-center"
             >
-              <div className="flex gap-4 items-start">
-                <div className="bg-[#00b8e6]/10 p-3 rounded-full">🌿</div>
-                <div>
-                  <h3 className="text-xl font-semibold text-[#001f3f]">
-                    Local Sourcing
-                  </h3>
-                  <p className="text-gray-600">
-                    We prioritize local farmers and suppliers, supporting sustainability while ensuring 
-                    the freshest ingredients for every event.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 items-start">
-                <div className="bg-[#00b8e6]/10 p-3 rounded-full">💧</div>
-                <div>
-                  <h3 className="text-xl font-semibold text-[#001f3f]">
-                    Eco-Friendly Operations
-                  </h3>
-                  <p className="text-gray-600">
-                    From biodegradable packaging to waste reduction initiatives, we’re constantly evolving 
-                    to protect the environment we serve.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 items-start">
-                <div className="bg-[#00b8e6]/10 p-3 rounded-full">🤝</div>
-                <div>
-                  <h3 className="text-xl font-semibold text-[#001f3f]">
-                    Community Empowerment
-                  </h3>
-                  <p className="text-gray-600">
-                    We train youth and local hospitality enthusiasts, creating opportunities and fostering 
-                    growth through food and service.
-                  </p>
-                </div>
-              </div>
+              <div className="text-[#FF6600] mb-3 sm:mb-4 flex justify-center">{item.icon}</div>
+              <h3 className="text-lg sm:text-xl font-bold text-[#001f3f] mb-2">{item.title}</h3>
+              <p className="text-gray-600 text-sm sm:text-base">{item.description}</p>
             </motion.div>
+          ))}
+        </div>
+      </section>
 
-            {/* Impact Card */}
+      {/* What We Are Creating Section */}
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50 relative overflow-hidden">
+        {/* Background shapes */}
+        <div className="absolute -top-32 -right-32 w-56 sm:w-72 h-56 sm:h-72 bg-[#FF6600]/10 rounded-full filter blur-3xl animate-pulse-slow"></div>
+        <div className="absolute -bottom-32 -left-32 w-56 sm:w-72 h-56 sm:h-72 bg-[#FF8533]/10 rounded-full filter blur-3xl animate-ping-slow"></div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 text-center mb-8 sm:mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold text-[#001f3f] mb-3 sm:mb-4">What We Are Creating</h2>
+          <p className="text-gray-700 text-base sm:text-lg md:text-lg max-w-3xl mx-auto leading-relaxed">
+            Blend is more than an events company; we are creators of experiences. Through our event planning, brand strategy, and creative marketing, we build moments that inspire, connect, and elevate your brand and personal celebrations.
+          </p>
+        </div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          {[
+            { icon: <FaStar size={30} />, title: "Memorable Experiences" },
+            { icon: <FaLeaf size={30} />, title: "Sustainable Impact" },
+            { icon: <FaLightbulb size={30} />, title: "Creative Branding" },
+            { icon: <FaHandshake size={30} />, title: "Community Connections" }
+          ].map((item, idx) => (
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative bg-[#001f3f] text-white p-10 rounded-2xl shadow-lg overflow-hidden"
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: idx * 0.2 }}
+              className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center"
             >
-              <div className="relative z-10 space-y-6 text-center">
-                <h3 className="text-3xl font-bold">Our Impact</h3>
-                <div className="grid grid-cols-2 gap-8 mt-6">
-                  <div>
-                    <p className="text-4xl font-bold text-[#00b8e6]">80%</p>
-                    <p className="text-sm">Local produce</p>
-                  </div>
-                  <div>
-                    <p className="text-4xl font-bold text-[#00b8e6]">200+</p>
-                    <p className="text-sm">Youth trained yearly</p>
-                  </div>
-                  <div>
-                    <p className="text-4xl font-bold text-[#00b8e6]">95%</p>
-                    <p className="text-sm">Recycled waste</p>
-                  </div>
-                  <div>
-                    <p className="text-4xl font-bold text-[#00b8e6]">15+</p>
-                    <p className="text-sm">Community projects</p>
-                  </div>
-                </div>
-              </div>
+              <div className="text-[#FF6600] mb-3 sm:mb-4 flex justify-center">{item.icon}</div>
+              <h3 className="text-lg sm:text-xl font-bold text-[#001f3f]">{item.title}</h3>
             </motion.div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Our Values */}
-      <section className="py-20 bg-[#f9fafc] text-center">
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl md:text-4xl font-bold text-[#001f3f] mb-6"
-          >
-            Our Values
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9 }}
-            className="text-gray-700 max-w-3xl mx-auto mb-10"
-          >
-            Every plate we serve is guided by integrity, creativity, teamwork, and a deep respect for people and the planet.
-          </motion.p>
-
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              { title: "Integrity", desc: "We uphold honesty and transparency in every interaction." },
-              { title: "Creativity", desc: "We craft menus that inspire and delight every guest." },
-              { title: "Excellence", desc: "We deliver perfection in taste, service, and presentation." },
-              { title: "Community", desc: "We give back through training and local empowerment." },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition-all"
-              >
-                <h3 className="text-xl font-semibold text-[#001f3f] mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <style jsx>{`
+        @keyframes pulseSlow {
+          0%, 100% { transform: scale(1); opacity: 0.3; }
+          50% { transform: scale(1.1); opacity: 0.5; }
+        }
+        @keyframes pingSlow {
+          0% { transform: scale(1); opacity: 0.2; }
+          50% { transform: scale(1.2); opacity: 0.4; }
+          100% { transform: scale(1); opacity: 0.2; }
+        }
+        .animate-pulse-slow { animation: pulseSlow 6s infinite; }
+        .animate-ping-slow { animation: pingSlow 7s infinite; }
+      `}</style>
     </main>
   );
 }

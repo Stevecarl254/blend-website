@@ -1,133 +1,97 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-import { FaClipboardCheck, FaBoxOpen, FaPhoneAlt } from "react-icons/fa";
+import { FaCalendarAlt, FaBullhorn, FaLightbulb } from "react-icons/fa";
 
-export default function HowToHireSection() {
+export default function HowBlendWorks() {
   const steps = [
     {
       id: 1,
-      icon: <FaClipboardCheck className="w-7 h-7 text-white" />,
-      title: "Choose Equipment",
-      description: "Browse our catering equipment and select what you need.",
-      color: "bg-blue-500",
+      icon: <FaCalendarAlt className="w-8 h-8 text-white" />,
+      title: "Plan Your Event",
+      description:
+        "We start by understanding your vision and goals, whether it's a wedding, concert, launch event, or corporate gathering.",
+      color: "bg-[#FF6600]",
     },
     {
       id: 2,
-      icon: <FaBoxOpen className="w-7 h-7 text-white" />,
-      title: "Place Order",
-      description: "Fill in details, select dates, and submit your request.",
-      color: "bg-green-500",
+      icon: <FaBullhorn className="w-8 h-8 text-white" />,
+      title: "Brand Strategy",
+      description:
+        "We craft a tailored strategy to amplify your brand, ensuring every element of your event communicates your message clearly.",
+      color: "bg-[#001f3f]",
     },
     {
       id: 3,
-      icon: <FaPhoneAlt className="w-7 h-7 text-white" />,
-      title: "We Contact You",
-      description: "Our team contacts you promptly to confirm and arrange delivery.",
-      color: "bg-purple-500",
+      icon: <FaLightbulb className="w-8 h-8 text-white" />,
+      title: "Creative Marketing",
+      description:
+        "We execute innovative marketing campaigns and creative concepts that engage your audience and make your event unforgettable.",
+      color: "bg-[#FF6600]",
     },
   ];
 
   return (
-    <section className="relative w-full py-16 bg-gradient-to-br from-yellow-50 via-white to-yellow-100 overflow-hidden">
-      {/* Background shapes */}
-      <div className="absolute -top-32 -left-32 w-80 h-80 bg-yellow-200 rounded-full opacity-30 animate-pulse-slow"></div>
-      <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-yellow-300 rounded-full opacity-20 animate-ping-slow"></div>
+    <section className="relative py-24 overflow-hidden bg-gradient-to-br from-[#001f3f] via-[#003366] to-[#001f3f]">
+      {/* Decorative background shapes */}
+      <div className="absolute -top-32 -left-32 w-80 h-80 bg-[#FF6600]/20 rounded-full animate-pulse-slow"></div>
+      <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-[#FF6600]/15 rounded-full animate-ping-slow"></div>
 
-      <div className="relative z-10 container mx-auto px-6 flex flex-col md:flex-row items-center gap-8">
+      <div className="relative max-w-6xl mx-auto px-6 text-white text-center">
+        <h2 className="text-4xl md:text-5xl font-bold mb-12">
+          How <span className="text-[#FF6600]">Blend</span> Works
+        </h2>
+        <p className="text-gray-200 text-lg md:text-xl mb-16 max-w-3xl mx-auto">
+          We guide you from planning your event to building your brand and marketing creatively to make your event unforgettable.
+        </p>
+
         {/* Steps */}
-        <div className="flex-1 flex flex-col gap-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#002366] mb-3">
-            How to Hire Catering Equipment with <span className="text-yellow-600">Hiro</span>
-          </h2>
-          <p className="text-gray-700 mb-6 max-w-md">
-            Follow these simple steps to get the equipment you need quickly and hassle-free!
-          </p>
+        <div className="relative flex flex-col md:flex-row items-start md:items-center gap-16">
+          {/* Vertical connecting line for desktop */}
+          <div className="hidden md:block absolute top-16 left-1/2 transform -translate-x-1/2 w-1 h-full bg-[#FF6600]"></div>
 
-          {/* Steps container with mockup overlap */}
-          <div className="relative">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {steps.slice(0, 2).map((step, index) => (
-                <div
-                  key={step.id}
-                  className={`bg-white rounded-2xl shadow-lg p-4 flex items-start gap-3 transform transition-transform hover:-translate-y-1 hover:shadow-xl animate-stepFadeUp`}
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  <div className={`p-2 rounded-full flex items-center justify-center ${step.color}`}>
-                    {step.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-md font-semibold text-[#002366]">{step.title}</h3>
-                    <p className="text-gray-600 text-sm">{step.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Step 3 below */}
-            <div className="mt-4 md:mt-6 w-3/4">
+          {steps.map((step, index) => (
+            <div key={step.id} className="relative flex-1 flex flex-col items-center md:items-start">
+              
+              {/* Slanted trapezium accent */}
               <div
-                className={`bg-white rounded-2xl shadow-lg p-4 flex items-start gap-3 transform transition-transform hover:-translate-y-1 hover:shadow-xl animate-stepFadeUp`}
-                style={{ animationDelay: "0.4s" }}
+                className={`absolute top-0 -left-6 md:-left-12 w-32 h-16 md:w-40 md:h-20 transform -skew-x-12 z-0 ${
+                  index % 2 === 0 ? "bg-[#FF6600]" : "bg-[#001f3f]"
+                } opacity-70 md:opacity-100 rounded-lg`}
+              ></div>
+
+              {/* Step icon */}
+              <div
+                className={`relative w-16 h-16 rounded-full flex items-center justify-center mb-4 ${step.color} shadow-lg z-10`}
               >
-                <div className={`p-2 rounded-full flex items-center justify-center ${steps[2].color}`}>
-                  {steps[2].icon}
-                </div>
-                <div>
-                  <h3 className="text-md font-semibold text-[#002366]">{steps[2].title}</h3>
-                  <p className="text-gray-600 text-sm">{steps[2].description}</p>
-                </div>
+                {step.icon}
               </div>
+
+              {/* Step content */}
+              <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-6 shadow-lg flex flex-col gap-2 text-center md:text-left z-10">
+                <h3 className="text-xl font-semibold text-white">{step.title}</h3>
+                <p className="text-gray-200 text-sm md:text-base">{step.description}</p>
+              </div>
+
+              {/* Horizontal connector for mobile */}
+              {index < steps.length - 1 && (
+                <div className="md:hidden w-1 bg-[#FF6600] h-12 mx-auto"></div>
+              )}
             </div>
-          </div>
-
-          {/* Button */}
-          <div className="mt-6">
-            <Link
-              href="/services\hiring-catering-equipment"
-              className="inline-block bg-[#002366] text-white font-semibold px-6 py-3 rounded-full text-base hover:bg-blue-800 transition-colors duration-300 shadow-md hover:shadow-lg"
-            >
-              Hire Catering Equipment
-            </Link>
-          </div>
-        </div>
-
-        {/* Mockup */}
-        <div className="flex-1 flex justify-center items-center relative md:-ml-12 md:-mt-6">
-          <div className="relative w-64 h-64 md:w-80 md:h-80 animate-floating">
-            <Image
-              src="/catering-person.png"
-              alt="Catering Person Mockup"
-              fill
-              style={{ objectFit: "contain" }}
-            />
-          </div>
+          ))}
         </div>
       </div>
 
       {/* Animations */}
       <style jsx>{`
-        @keyframes stepFadeUp {
-          0% { opacity: 0; transform: translateY(15px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
         @keyframes pulseSlow {
           0%, 100% { transform: scale(1); opacity: 0.3; }
           50% { transform: scale(1.1); opacity: 0.5; }
         }
         @keyframes pingSlow {
-          0% { transform: scale(1); opacity: 0.2; }
-          50% { transform: scale(1.2); opacity: 0.4; }
-          100% { transform: scale(1); opacity: 0.2; }
+          0% { transform: scale(1); opacity: 0.15; }
+          50% { transform: scale(1.2); opacity: 0.3; }
+          100% { transform: scale(1); opacity: 0.15; }
         }
-        @keyframes floating {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-8px); }
-        }
-
-        .animate-stepFadeUp { animation: stepFadeUp 0.6s ease-in-out forwards; }
-        .animate-floating { animation: floating 3s ease-in-out infinite; }
         .animate-pulse-slow { animation: pulseSlow 6s infinite; }
         .animate-ping-slow { animation: pingSlow 7s infinite; }
       `}</style>

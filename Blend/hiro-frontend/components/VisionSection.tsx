@@ -1,95 +1,92 @@
 "use client";
 
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import { FiEye, FiTarget, FiAward } from "react-icons/fi";
+import { FaEye, FaBullseye, FaHandsHelping } from "react-icons/fa";
+import { motion } from "framer-motion";
 
-const items = [
-  {
-    id: 1,
-    title: "Our Vision",
-    description:
-      "To be the leading catering service in the region, creating memorable experiences with elegance, professionalism, and passion.",
-    icon: <FiEye size={32} />,
-  },
-  {
-    id: 2,
-    title: "Our Goal",
-    description:
-      "Deliver exceptional catering solutions tailored to each client, ensuring satisfaction and lasting impressions.",
-    icon: <FiTarget size={32} />,
-  },
-  {
-    id: 3,
-    title: "Our Values",
-    description:
-      "Quality, integrity, creativity, and professionalism guide everything we do in providing top-tier catering services.",
-    icon: <FiAward size={32} />,
-  },
-];
-
-export default function VisionSection() {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    } else {
-      controls.start("hidden");
-    }
-  }, [controls, inView]);
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.2, duration: 0.5 },
-    }),
-  };
+export default function VisionGoalsValues() {
+  const items = [
+    {
+      id: 1,
+      icon: <FaEye className="w-10 h-10 text-white" />,
+      title: "Our Vision",
+      description:
+        "To be the leading creative agency that crafts unforgettable events and impactful brand experiences across Kenya and beyond.",
+      color: "bg-[#FF6600]",
+    },
+    {
+      id: 2,
+      icon: <FaBullseye className="w-10 h-10 text-white" />,
+      title: "Our Goals",
+      description:
+        "To deliver excellence in event planning, brand strategy, and creative marketing, exceeding client expectations every time.",
+      color: "bg-[#001f3f]",
+    },
+    {
+      id: 3,
+      icon: <FaHandsHelping className="w-10 h-10 text-white" />,
+      title: "Our Values",
+      description:
+        "Creativity, professionalism, client satisfaction, innovation, and integrity guide everything we do.",
+      color: "bg-[#FF6600]",
+    },
+  ];
 
   return (
-    <section ref={ref} className="relative py-24 overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
-          src="/catering-bg.jpg"
-          alt="Catering Background"
-          className="w-full h-full object-cover"
-        />
-        {/* Dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/60 backdrop-blur-sm"></div>
+    <section className="relative py-24 overflow-hidden bg-[#FFF8F0]">
+      {/* Decorative background shapes */}
+      <div className="absolute -top-32 -left-20 w-96 h-96 bg-[#FF6600]/20 rounded-full animate-pulse-slow"></div>
+      <div className="absolute -bottom-32 -right-20 w-96 h-96 bg-[#001f3f]/10 rounded-full animate-ping-slow"></div>
+
+      <div className="relative max-w-6xl mx-auto px-6 text-center text-[#001f3f]">
+        <h2 className="text-4xl md:text-5xl font-bold mb-16">
+          Who We Are & What Drives Us
+        </h2>
+
+        <div className="grid gap-8 md:grid-cols-3">
+          {items.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="relative bg-white rounded-3xl p-8 shadow-lg flex flex-col items-center text-center hover:scale-105 transition-transform duration-300"
+            >
+              {/* Icon */}
+              <div
+                className={`w-20 h-20 rounded-full flex items-center justify-center mb-4 shadow-lg ${item.color}`}
+              >
+                {item.icon}
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl md:text-2xl font-semibold mb-2">{item.title}</h3>
+
+              {/* Description */}
+              <p className="text-gray-700 text-sm md:text-base">{item.description}</p>
+
+              {/* Decorative trapezium behind card */}
+              <div
+                className={`absolute -bottom-6 -left-6 w-24 h-12 transform -skew-x-12 rounded-lg ${item.color} opacity-50 z-0`}
+              ></div>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="relative max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-stretch gap-8 text-white">
-        {items.map((item, index) => (
-          <motion.div
-            key={item.id}
-            custom={index}
-            initial="hidden"
-            animate={controls}
-            variants={itemVariants}
-            className="bg-black/30 backdrop-blur-md rounded-2xl p-8 flex-1 flex flex-col items-center text-center relative"
-          >
-            {/* Icon */}
-            <div className="text-[#00b8e6] mb-4">{item.icon}</div>
-
-            {/* Title */}
-            <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-
-            {/* Description */}
-            <p className="text-white/90">{item.description}</p>
-
-            {/* Vertical separator line */}
-            {index < items.length - 1 && (
-              <div className="hidden md:block absolute right-0 top-10 bottom-10 w-px bg-[#00b8e6]"></div>
-            )}
-          </motion.div>
-        ))}
-      </div>
+      {/* Animations */}
+      <style jsx>{`
+        @keyframes pulseSlow {
+          0%, 100% { transform: scale(1); opacity: 0.3; }
+          50% { transform: scale(1.1); opacity: 0.5; }
+        }
+        @keyframes pingSlow {
+          0% { transform: scale(1); opacity: 0.1; }
+          50% { transform: scale(1.2); opacity: 0.2; }
+          100% { transform: scale(1); opacity: 0.1; }
+        }
+        .animate-pulse-slow { animation: pulseSlow 6s infinite; }
+        .animate-ping-slow { animation: pingSlow 7s infinite; }
+      `}</style>
     </section>
   );
 }

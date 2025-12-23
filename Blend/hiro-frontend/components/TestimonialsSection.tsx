@@ -7,21 +7,21 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 const testimonials = [
   {
     id: 1,
-    name: "Alice Johnson",
+    name: "Alice Mwikali",
     rating: 5,
-    text: "Hiro Catering made our wedding unforgettable. The food, presentation, and staff were absolutely top-notch!",
+    text: "Blend made our wedding spectacular! The event planning and creative touches were flawless. Highly recommended!",
   },
   {
     id: 2,
-    name: "Mark Thompson",
+    name: "Mark Ochieng",
     rating: 4,
-    text: "The catering service was professional and elegant. Highly recommended for corporate events.",
+    text: "Professional and reliable. The team helped us launch our product with amazing brand strategy and marketing support.",
   },
   {
     id: 3,
-    name: "Sophia Lee",
+    name: "Sophia Njeri",
     rating: 5,
-    text: "Amazing experience! The team went above and beyond to ensure everything was perfect.",
+    text: "Our corporate event was unforgettable thanks to Blend. From planning to execution, everything was perfect!",
   },
 ];
 
@@ -36,7 +36,6 @@ export default function TestimonialSection() {
     setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
-  // Auto-scroll every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
@@ -48,7 +47,7 @@ export default function TestimonialSection() {
     return Array.from({ length: 5 }, (_, i) => (
       <span
         key={i}
-        className={`inline-block w-4 h-4 ${i < count ? "text-[#00b8e6]" : "text-gray-300"}`}
+        className={`inline-block w-4 h-4 sm:w-5 sm:h-5 ${i < count ? "text-[#FF6600]" : "text-gray-300"}`}
       >
         ★
       </span>
@@ -57,15 +56,15 @@ export default function TestimonialSection() {
 
   return (
     <section className="relative py-24 bg-gray-50 font-['Figtree']">
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        <h2 className="text-4xl font-bold text-[#001f3f] mb-12">Testimonials</h2>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#001f3f] mb-12">Testimonials</h2>
 
         {/* Slider Container */}
-        <div className="relative overflow-hidden h-64 md:h-72">
+        <div className="relative overflow-hidden h-72 sm:h-80 md:h-96">
           <AnimatePresence initial={false}>
             <motion.div
               key={testimonials[current].id}
-              className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-12 text-center"
+              className="absolute inset-0 flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 text-center"
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
@@ -75,13 +74,13 @@ export default function TestimonialSection() {
               <div className="absolute inset-0 bg-white/20 backdrop-blur-md rounded-2xl shadow-lg"></div>
 
               <div className="relative z-10 max-w-2xl">
-                <p className="text-gray-900 text-lg md:text-xl mb-4 leading-relaxed">
+                <p className="text-gray-900 text-base sm:text-lg md:text-xl mb-4 leading-relaxed">
                   "{testimonials[current].text}"
                 </p>
-                <div className="text-[#001f3f] font-semibold text-lg md:text-xl mb-2">
+                <div className="text-[#001f3f] font-semibold text-lg sm:text-xl md:text-2xl mb-2">
                   {testimonials[current].name}
                 </div>
-                <div className="flex justify-center">{renderStars(testimonials[current].rating)}</div>
+                <div className="flex justify-center space-x-1">{renderStars(testimonials[current].rating)}</div>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -89,15 +88,15 @@ export default function TestimonialSection() {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-[#001f3f] p-2 rounded-full shadow-md z-20"
+            className="absolute left-2 sm:left-4 md:left-6 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-[#001f3f] p-2 sm:p-3 rounded-full shadow-md z-20"
           >
-            <FiChevronLeft size={24} />
+            <FiChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-[#001f3f] p-2 rounded-full shadow-md z-20"
+            className="absolute right-2 sm:right-4 md:right-6 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-[#001f3f] p-2 sm:p-3 rounded-full shadow-md z-20"
           >
-            <FiChevronRight size={24} />
+            <FiChevronRight className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
           </button>
         </div>
       </div>

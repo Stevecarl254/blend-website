@@ -1,87 +1,80 @@
 "use client";
 
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 import { FiCheck } from "react-icons/fi";
 
 const reasons = [
-  "Exceptional catering tailored to your event",
-  "Professional and experienced staff",
-  "High-quality ingredients and presentation",
-  "Flexible and reliable service",
-  "Creating unforgettable experiences",
+  "Tailored event planning for concerts, weddings, launches, and corporate events",
+  "Creative brand strategy to elevate your presence",
+  "Innovative marketing that captivates your audience",
+  "Professional and experienced team",
+  "Delivering unforgettable experiences every time",
 ];
 
-export default function WhyHiroSection() {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 });
-
-  useEffect(() => {
-    if (inView) controls.start("visible");
-    else controls.start("hidden");
-  }, [controls, inView]);
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.2, duration: 0.5 },
-    }),
-  };
-
+export default function WhyBlendSection() {
   return (
-    <section
-      ref={ref}
-      className="relative py-24 font-['Figtree'] overflow-hidden bg-gray-100 bg-[url('/rough-texture.png')]"
-    >
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
-        
-        {/* Left: List */}
+    <section className="relative py-24 font-['Figtree'] bg-gradient-to-br from-[#FFF8F0] to-[#FFF3E6] overflow-hidden">
+      {/* Decorative shapes */}
+      <div className="absolute -top-20 -left-10 w-64 sm:w-80 h-64 sm:h-80 bg-[#FF6600]/10 rounded-full animate-pulse-slow"></div>
+      <div className="absolute -bottom-20 -right-10 w-64 sm:w-80 h-64 sm:h-80 bg-[#001f3f]/10 rounded-full animate-ping-slow"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col md:flex-row items-center gap-12 relative z-10">
+        {/* Left Text */}
         <motion.div
           className="flex-1"
-          initial="hidden"
-          animate={controls}
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#001f3f] mb-8">
-            Why Hiro Catering
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#001f3f] mb-6 sm:mb-8">
+            Why Choose <span className="text-[#FF6600]">Blend</span>
           </h2>
-          <ul className="space-y-4">
-            {reasons.map((reason, index) => (
+
+          <ul className="space-y-4 sm:space-y-6 text-base sm:text-lg text-gray-800">
+            {reasons.map((reason, i) => (
               <motion.li
-                key={index}
-                custom={index}
-                initial="hidden"
-                animate={controls}
-                variants={itemVariants}
-                className="flex items-start gap-3 text-lg text-gray-800"
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.2, duration: 0.6 }}
+                className="flex items-start sm:items-center gap-3 sm:gap-4"
               >
-                <FiCheck className="text-[#00b8e6] mt-1 flex-shrink-0" size={20} />
-                {reason}
+                <FiCheck className="text-[#FF6600] flex-shrink-0 mt-1 sm:mt-0" size={20} />
+                <span>{reason}</span>
               </motion.li>
             ))}
           </ul>
         </motion.div>
 
-        {/* Right: Image */}
+        {/* Right Image */}
         <motion.div
-          className="flex-1 w-full max-w-md aspect-square rounded-2xl overflow-hidden shadow-lg"
-          initial="hidden"
-          animate={controls}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { duration: 0.6 } },
-          }}
+          className="flex-1 relative w-full max-w-md sm:max-w-lg rounded-3xl overflow-hidden shadow-xl"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
         >
           <img
-            src="/why hiro.jpg"
-            alt="Why Hiro Catering"
-            className="w-full h-full object-cover"
+            src="/why blend.jpg"
+            alt="Why Blend"
+            className="w-full h-full object-cover rounded-3xl"
           />
         </motion.div>
-
       </div>
+
+      {/* Animations */}
+      <style jsx>{`
+        @keyframes pulseSlow {
+          0%, 100% { transform: scale(1); opacity: 0.1; }
+          50% { transform: scale(1.1); opacity: 0.2; }
+        }
+        @keyframes pingSlow {
+          0% { transform: scale(1); opacity: 0.1; }
+          50% { transform: scale(1.2); opacity: 0.2; }
+          100% { transform: scale(1); opacity: 0.1; }
+        }
+        .animate-pulse-slow { animation: pulseSlow 6s infinite; }
+        .animate-ping-slow { animation: pingSlow 7s infinite; }
+      `}</style>
     </section>
   );
 }
