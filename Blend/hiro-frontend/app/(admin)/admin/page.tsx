@@ -2,51 +2,50 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import axios from "axios";
-import { Info, Bell, CheckCircle, Users, Calendar, FileText } from "lucide-react";
+import { Info, Bell, Users, Mail, Briefcase } from "lucide-react";
 
 const tipsData = [
   {
     id: 1,
     icon: <Info className="w-5 h-5 text-white" />,
     title: "System Tip",
-    message: "Check pending bookings daily to avoid delays.",
-    color: "bg-blue-500",
+    message: "Remember to update team members regularly to keep your dashboard accurate.",
+    color: "bg-[#001f3f]",
   },
   {
     id: 2,
     icon: <Bell className="w-5 h-5 text-white" />,
     title: "Reminder",
-    message: "Review new quotes to respond to clients promptly.",
-    color: "bg-yellow-500",
+    message: "Check career applications daily to respond to potential hires promptly.",
+    color: "bg-[#FF6600]",
   },
   {
     id: 3,
-    icon: <CheckCircle className="w-5 h-5 text-white" />,
+    icon: <Info className="w-5 h-5 text-white" />,
     title: "Quick Tip",
-    message: "Update gallery regularly to showcase recent events.",
-    color: "bg-green-500",
+    message: "Respond to client messages in a timely manner to maintain professionalism.",
+    color: "bg-[#001f3f]",
   },
 ];
 
 const quickLinks = [
   {
-    title: "Equipment Bookings",
-    icon: <Calendar className="w-6 h-6 text-white" />,
-    href: "/admin/equipment-bookings",
-    color: "from-blue-400 to-blue-600",
-  },
-  {
-    title: "Staff Management",
+    title: "Team Members",
     icon: <Users className="w-6 h-6 text-white" />,
-    href: "/admin/staff",
-    color: "from-purple-400 to-purple-600",
+    href: "/admin/team",
+    color: "from-[#001f3f] to-[#004d7a]",
   },
   {
-    title: "Quotes",
-    icon: <FileText className="w-6 h-6 text-white" />,
-    href: "/admin/quotes",
-    color: "from-green-400 to-green-600",
+    title: "Careers",
+    icon: <Briefcase className="w-6 h-6 text-white" />,
+    href: "/admin/careers",
+    color: "from-[#FF6600] to-[#FF8533]",
+  },
+  {
+    title: "Messages",
+    icon: <Mail className="w-6 h-6 text-white" />,
+    href: "/admin/messages",
+    color: "from-[#00b8e6] to-[#004d7a]",
   },
 ];
 
@@ -54,7 +53,6 @@ export default function AdminLanding() {
   const [adminName, setAdminName] = useState<string | null>(null);
   const [currentTip, setCurrentTip] = useState(0);
 
-  // Rotate tips every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTip((prev) => (prev + 1) % tipsData.length);
@@ -62,7 +60,7 @@ export default function AdminLanding() {
     return () => clearInterval(interval);
   }, []);
 
-  // Fetch admin info from backend using JWT
+  // Fetch admin info from backend
   useEffect(() => {
     const fetchAdmin = async () => {
       const token = localStorage.getItem("authToken");
@@ -72,14 +70,12 @@ export default function AdminLanding() {
       }
 
       try {
-        const res = await axios.get("http://localhost:5000/api/users/me", {
+        const res = await fetch("http://localhost:5000/api/users/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
-
-        // Extract first name from full name
-        const fullName = res.data.user?.name || "Admin";
-        const firstName = fullName.split(" ")[0];
-        setAdminName(firstName);
+        const data = await res.json();
+        const fullName = data.user?.name || "Admin";
+        setAdminName(fullName.split(" ")[0]);
       } catch (err) {
         console.error("Failed to fetch admin info:", err);
         setAdminName("Admin");
@@ -97,9 +93,9 @@ export default function AdminLanding() {
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
           src="/logo.png"
-          alt="Hiro Logo"
+          alt="Blend Logo"
           fill
-          className="object-contain opacity-40 pointer-events-none select-none"
+          className="object-contain opacity-30 pointer-events-none select-none"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white/80"></div>
       </div>
@@ -107,11 +103,11 @@ export default function AdminLanding() {
       <div className="relative z-10 w-full max-w-6xl px-6 py-16">
         {/* Hero Section */}
         <section className="text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold text-[#002366] animate-fadeIn">
+          <h1 className="text-5xl md:text-6xl font-bold text-[#001f3f] animate-fadeIn">
             Welcome, {adminName ?? "..."}
           </h1>
           <p className="text-gray-700 mt-4 text-lg animate-fadeIn delay-200">
-            Manage your dashboard and stay on top of your operations
+            Manage your Blend team, careers, and client messages
           </p>
         </section>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { X } from "lucide-react";
 import Image from "next/image";
 import { FiFacebook, FiInstagram, FiLinkedin } from "react-icons/fi";
 import { SiTiktok } from "react-icons/si";
@@ -10,57 +11,57 @@ const teamMembers = [
     name: "Stephen Otwabe",
     role: "Founder & CEO",
     bio: "Leads Blend’s vision and strategy, guiding the team to deliver innovative events and impactful brand solutions.",
-    photo: "/team/stephen.jpg",
-    socials: { linkedin: "#", facebook: "#", instagram: "#", tiktok: "#" },
+    photo: "/CEO 2.png",
+    socials: { linkedin: "https://www.linkedin.com/in/stephen-otwabe-b092aa297/", facebook: "https://www.facebook.com/share/1BbcB6EUb1/", instagram: "https://www.instagram.com/stevo_carl/", tiktok: "https://www.tiktok.com/@steve_carl?_r=1&_t=ZM-92TzR1aMgqS" },
   },
   {
     name: "Abel Mogambi",
     role: "Co-Founder & Operations",
     bio: "Oversees operations, ensuring smooth execution of all projects and delivering excellence in every event.",
-    photo: "/team/abel.jpg",
-    socials: { linkedin: "#", facebook: "#", instagram: "#", tiktok: "#" },
+    photo: "/abel 3.png",
+    socials: { facebook: "https://www.facebook.com/search/top?q=mogambi%20mogaka%20abel", instagram: "https://www.instagram.com/_your.favorite.cousin_/", tiktok: "https://www.tiktok.com/@abelmogambi" },
   },
   {
     name: "Owen Geke",
     role: "Creative Director",
     bio: "Leads the creative vision, crafting design and branding strategies that make every project unique.",
-    photo: "/team/owen.jpg",
+    photo: "/owen 1.png",
     socials: { linkedin: "#", facebook: "#", instagram: "#", tiktok: "#" },
   },
   {
     name: "Isaac Onchiri",
     role: "Event Planner",
     bio: "Plans and coordinates events meticulously, ensuring every detail contributes to unforgettable experiences.",
-    photo: "/team/isaac.jpg",
-    socials: { linkedin: "#", facebook: "#", instagram: "#", tiktok: "#" },
-  },
-  {
-    name: "Viola Kerubo",
-    role: "Marketing Strategist",
-    bio: "Develops campaigns that engage audiences and amplify the Blend brand across multiple platforms.",
-    photo: "/team/viola.jpg",
-    socials: { linkedin: "#", facebook: "#", instagram: "#", tiktok: "#" },
+    photo: "/isaac 1.png",
+    socials: { facebook: "https://www.facebook.com/isaack.onchiri", instagram: "https://www.instagram.com/onchiriisaac/" },
   },
   {
     name: "Vivian Kerubo",
+    role: "Marketing Strategist",
+    bio: "Develops campaigns that engage audiences and amplify the Blend brand across multiple platforms.",
+    photo: "/viv 2.png",
+    socials: { linkedin: "https://www.linkedin.com/in/vivian-mogonchi-8ab811229/", instagram: "https://www.instagram.com/viv.kerubo.m/", tiktok:  "https://www.tiktok.com/@viv.k.m" },
+  },
+  {
+    name: "Viola Kerubo",
     role: "Content & Communication",
     bio: "Manages storytelling, content strategy, and communications to connect Blend with its audience effectively.",
-    photo: "/team/vivian.jpg",
-    socials: { linkedin: "#", facebook: "#", instagram: "#", tiktok: "#" },
+    photo: "/viola 3.png",
+    socials: {  instagram:  "https://www.instagram.com/chwaks_._/", tiktok: "https://www.tiktok.com/@_its__viola_" },
   },
   {
     name: "Ivy N.",
     role: "Host & Presenter",
     bio: "Engages audiences as the face of Blend’s events, hosting and presenting with professionalism and charisma.",
-    photo: "/team/ivy.jpg",
-    socials: { linkedin: "#", facebook: "#", instagram: "#", tiktok: "#" },
+    photo: "/ivy 1.png",
+    socials: { instagram: "https://www.instagram.com/wairrymu?igsh=a2loa2o2YWgyZGlo", tiktok: "https://www.tiktok.com/@_wairrymu" },
   },
   {
     name: "Stephanie Nyanchama",
     role: "Graphic Designer",
     bio: "Creates visually compelling graphics that communicate ideas effectively and elevate the Blend brand.",
-    photo: "/team/stephanie.jpg",
-    socials: { linkedin: "#", facebook: "#", instagram: "#", tiktok: "#" },
+    photo: "/steph 3.png",
+    socials: { instagram: "https://www.instagram.com/stephyxydash/", tiktok: "https://www.tiktok.com/@gesteff04" },
   },
 ];
 

@@ -12,7 +12,7 @@ export default function ServicesPage() {
       description:
         "From weddings, private parties, corporate events to concerts and product launches — Blend crafts unforgettable experiences, managing every detail with creativity and professionalism.",
       icon: <FiLayers className="w-8 h-8 text-[#FF6600]" />,
-      image: "/event-planning.jpg",
+      image: "/deco.jpeg",
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ export default function ServicesPage() {
       description:
         "Professional sound engineering for every event. We provide full PA system setup and technical support to ensure crystal-clear audio.",
       icon: <FiMic className="w-8 h-8 text-[#FF6600]" />,
-      image: "/pa-system.jpg",
+      image: "/PA system.jpEg",
     },
     {
       id: 4,
@@ -36,7 +36,7 @@ export default function ServicesPage() {
       description:
         "Capture every moment perfectly. Our team provides professional photography and videography, delivering high-quality visuals for memories that last a lifetime.",
       icon: <FiCamera className="w-8 h-8 text-[#FF6600]" />,
-      image: "/videography.jpg",
+      image: "/photo.jpeg",
     },
     {
       id: 5,
@@ -44,7 +44,7 @@ export default function ServicesPage() {
       description:
         "From invitations and flyers to social media posts and branding assets, Blend's graphic design services bring your vision to life with creativity and precision.",
       icon: <FiEdit className="w-8 h-8 text-[#FF6600]" />,
-      image: "/graphic-design.jpg",
+      image: "/poster.jpg",
     },
   ];
 
@@ -53,7 +53,7 @@ export default function ServicesPage() {
       id: 1,
       name: "Wanjiku Mwangi",
       rating: 5,
-      text: "Blend made our wedding a dream come true! Every detail was perfectly planned and executed.",
+      text: "Blend made our Conference a dream come true! Every detail was perfectly planned and executed.",
     },
     {
       id: 2,
@@ -198,7 +198,7 @@ export default function ServicesPage() {
     >
       <div className="relative w-full h-64 sm:h-72 md:h-80">
         <Image
-          src="/gerizim-sundowner.jpg" // Replace with actual image
+          src="/sundowner.jpg" // Replace with actual image
           alt="Gerizim Youths Sundowner"
           fill
           style={{ objectFit: "cover" }}
@@ -224,7 +224,7 @@ export default function ServicesPage() {
     >
       <div className="relative w-full h-64 sm:h-72 md:h-80">
         <Image
-          src="/parliament-conference.jpg" // Replace with actual image
+          src="/conference.jpeg" // Replace with actual image
           alt="Sergeant at Arms Conference"
           fill
           style={{ objectFit: "cover" }}
@@ -282,7 +282,7 @@ export default function ServicesPage() {
           Ready to Elevate Your Event?
         </h2>
         <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8">
-          Let Blend craft an unforgettable experience for you — from planning to execution.
+          Let Blend craft an unforgettable experience for you , from planning to execution.
         </p>
         <a
           href="/contact"

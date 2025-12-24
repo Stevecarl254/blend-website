@@ -54,7 +54,7 @@ export default function WhyBlendSection() {
           transition={{ duration: 0.8 }}
         >
           <img
-            src="/why blend.jpg"
+            src="/choose.jpeg"
             alt="Why Blend"
             className="w-full h-full object-cover rounded-3xl"
           />
