@@ -12,8 +12,8 @@ export default function CareerPage() {
       <section className="relative h-[40vh] flex items-center justify-center bg-gradient-to-r from-[#001f3f] via-[#004d7a] to-[#00b8e6] overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/career-hero.jpg"
-            alt="Join Blend Team"
+            src="/"
+            alt=""
             fill
             style={{ objectFit: "cover" }}
             className="opacity-30"

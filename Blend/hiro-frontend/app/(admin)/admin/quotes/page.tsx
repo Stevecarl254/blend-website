@@ -56,7 +56,11 @@ export default function QuotesPage() {
   };
 
   useEffect(() => {
-    fetchQuotes();
+    const initializeQuotes = async () => {
+      await fetchQuotes();
+    };
+
+    initializeQuotes();
 
     const socketClient = io("http://localhost:5000");
     setSocket(socketClient);
@@ -69,7 +73,11 @@ export default function QuotesPage() {
       }
     });
 
-    return () => socketClient.disconnect();
+    const cleanup = () => {
+      socketClient.disconnect();
+    };
+
+    return cleanup;
   }, []);
 
   const handleMarkAllSeen = () => {

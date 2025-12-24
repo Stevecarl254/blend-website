@@ -22,7 +22,14 @@ export default function AdminInventory() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingItem, setEditingItem] = useState<InventoryItem | null>(null);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    name: string;
+    category: string;
+    quantity: number;
+    unit: string;
+    price: number;
+    status: InventoryItem["status"] | "";
+  }>({
     name: "",
     category: "",
     quantity: 0,
@@ -49,12 +56,14 @@ export default function AdminInventory() {
     e.preventDefault();
     if (editingItem) {
       setItems((prev) =>
-        prev.map((i) => (i.id === editingItem.id ? { ...formData, id: editingItem.id } : i))
+        prev.map((i) =>
+          i.id === editingItem.id ? ({ ...(formData as InventoryItem), id: editingItem.id }) : i
+        )
       );
     } else {
       setItems((prev) => [
         ...prev,
-        { ...formData, id: prev.length ? prev[prev.length - 1].id + 1 : 1 },
+        ({ ...(formData as InventoryItem), id: prev.length ? prev[prev.length - 1].id + 1 : 1 }),
       ]);
     }
     closeModal();
@@ -161,7 +170,7 @@ export default function AdminInventory() {
               />
               <select
                 value={formData.status}
-                onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, status: e.target.value as InventoryItem["status"] | "" })}
                 required
                 className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#002366]"
               >

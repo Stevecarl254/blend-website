@@ -8,8 +8,13 @@ import { ReactNode } from "react";
 const figtree = Figtree({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
-  title: "Hiro Catering Services",
-  description: "One-stop site for all catering equipment, corporate hospitality, and event services.",
+  title: "Blend",
+  description: "Event planning, brand strategy, and creative marketing to make your events shine.",
+  icons: {
+    icon: "/blendicon1.png",
+    shortcut: "/blendicon1.png",
+    apple: "/blendicon1.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

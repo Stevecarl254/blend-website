@@ -104,7 +104,7 @@ export default function AdminTeamPage() {
     formData.append("socials", JSON.stringify(form.socials || {}));
 
     try {
-      let data;
+      let data: { success: boolean; data?: any };
       if (editId) {
         const res = await fetch(`${API_URL}/${editId}`, {
           method: "PUT",

@@ -88,7 +88,11 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <Mail size={16} className="text-[#FF6600]" />
-              <span>info@blendevents.co.ke</span>
+              <span>events@blend.co.ke</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <Mail size={16} className="text-[#FF6600]" />
+              <span>info@blend.co.ke</span>
             </li>
             <li className="flex items-center gap-2">
               <MapPin size={16} className="text-[#FF6600]" />
@@ -127,10 +131,10 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-700 mt-12 pt-6 text-center text-sm text-gray-500 flex flex-col sm:flex-row items-center justify-center gap-2 px-4">
-        <span>© {new Date().getFullYear()} Blend Events. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} Blend. All rights reserved.</span>
         <span className="flex items-center gap-1">
           <Heart size={14} className="text-[#FF6600]" />
-          <span>Crafted by Blend Sites</span>
+          <span>Crafted by Blend</span>
         </span>
       </div>
     </footer>

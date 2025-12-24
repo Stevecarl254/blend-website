@@ -94,13 +94,18 @@ const Navbar: React.FC = () => {
     >
       <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 font-['Figtree']">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <img
-            src="/logo.png"
+          <Link href="/" className="flex items-center gap-2 group cursor-pointer">
+            <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+              <img
+            src="/blendicon.png"
             alt="Blend Logo"
             className="h-14 w-auto object-contain scale-180"
           />
-        </Link>
+            </div>
+            <span className="font-display font-bold text-xl tracking-tight text-foreground">
+              <span className="text-[#000000]">Blend</span> <span className="text-primary text-[#FF6600]">TM</span>
+            </span>
+          </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-10">

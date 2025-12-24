@@ -149,19 +149,20 @@ export default function CaterersPage() {
               onSubmit={(e) => {
                 e.preventDefault();
                 const form = e.target as HTMLFormElement;
-                let roleValue = (form.role as HTMLSelectElement).value;
+                const roleElement = form.elements.namedItem('role') as HTMLSelectElement;
+                let roleValue = roleElement.value;
                 if (roleValue === "Other" && customRole.trim() !== "") {
                   roleValue = customRole.trim();
                   if (!roleOptions.includes(roleValue)) setRoleOptions([...roleOptions, roleValue]);
                 }
 
                 const newStaff: Staff = {
-                  name: (form.name as HTMLInputElement).value,
-                  speciality: (form.speciality as HTMLInputElement).value,
-                  image: (form.image as HTMLInputElement).value || undefined,
-                  bio: (form.bio as HTMLTextAreaElement).value,
+                  name: (form.elements.namedItem('name') as HTMLInputElement).value,
+                  speciality: (form.elements.namedItem('speciality') as HTMLInputElement).value,
+                  image: (form.elements.namedItem('image') as HTMLInputElement).value || undefined,
+                  bio: (form.elements.namedItem('bio') as HTMLTextAreaElement).value,
                   role: roleValue,
-                  experience: (form.experience as HTMLInputElement).value,
+                  experience: (form.elements.namedItem('experience') as HTMLInputElement).value,
                 };
                 handleAddStaff(newStaff);
                 form.reset();

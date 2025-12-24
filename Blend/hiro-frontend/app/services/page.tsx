@@ -20,7 +20,7 @@ export default function ServicesPage() {
       description:
         "We help businesses and individuals create strong brand identities and impactful campaigns. Our creative marketing solutions ensure maximum engagement and reach.",
       icon: <FiEdit className="w-8 h-8 text-[#FF6600]" />,
-      image: "/brand-strategy.jpg",
+      image: "/uxdesign.gif",
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ export default function ServicesPage() {
       description:
         "Professional sound engineering for every event. We provide full PA system setup and technical support to ensure crystal-clear audio.",
       icon: <FiMic className="w-8 h-8 text-[#FF6600]" />,
-      image: "/PA system.jpEg",
+      image: "/PA system.jpeg",
     },
     {
       id: 4,
@@ -95,8 +95,8 @@ export default function ServicesPage() {
       <section className="relative h-[50vh] flex items-center justify-center bg-gradient-to-r from-[#001f3f] via-[#004d7a] to-[#00b8e6] overflow-hidden px-4">
         <div className="absolute inset-0">
           <Image
-            src="/services-hero.jpg"
-            alt="Our Services"
+            src="/"
+            alt=""
             fill
             style={{ objectFit: "cover" }}
             className="opacity-30"

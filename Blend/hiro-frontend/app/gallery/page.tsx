@@ -3,8 +3,15 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+interface GalleryItem {
+  _id: string;
+  title: string;
+  imageUrl: string;
+  description?: string;
+}
+
 const GalleryPage = () => {
-  const [galleryItems, setGalleryItems] = useState([]);
+  const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
 
   useEffect(() => {
     // Fetch gallery data from backend

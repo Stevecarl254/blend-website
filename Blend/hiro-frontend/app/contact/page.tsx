@@ -61,7 +61,11 @@ const ContactPage: React.FC = () => {
             </div>
             <div className="flex items-center gap-4">
               <Mail className="w-6 h-6 text-[#001f3f]" />
-              <span>info@blentevents.co.ke</span>
+              <span>info@blend.co.ke</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <Mail className="w-6 h-6 text-[#001f3f]" />
+              <span>events@blend.co.ke</span>
             </div>
           </div>
 
