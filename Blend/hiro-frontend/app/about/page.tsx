@@ -15,10 +15,10 @@ export default function AboutPage() {
         <div className="absolute -bottom-32 -right-32 w-64 sm:w-96 h-64 sm:h-96 bg-[#ffffff20] rounded-full filter blur-3xl animate-ping-slow"></div>
 
         <Image
-          src="/about-hero.jpg"
+          src="/banner 1.png"
           alt="Blend Events Hero"
           fill
-          className="object-cover object-center absolute inset-0 -z-10"
+          className="object-cover object-center absolute inset-0 -z-6000 opacity-26"
         />
         <div className="text-center px-4 sm:px-6 md:px-12 z-10">
           <motion.h1
@@ -68,7 +68,7 @@ export default function AboutPage() {
             className="relative w-full h-64 sm:h-80 md:h-[400px] rounded-2xl overflow-hidden shadow-lg"
           >
             <Image
-              src="/our-story.jpg"
+              src="/aboutt.jpeg"
               alt="Our Story"
               fill
               className="object-cover object-center"

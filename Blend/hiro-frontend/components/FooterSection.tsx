@@ -58,10 +58,10 @@ export default function Footer() {
           <ul className="space-y-2 text-sm">
             {[
               "Home",
-              "About Us",
+              "About",
               "Services",
-              "Gallery",
-              "Get Quote",
+              "Team",
+              "Careers",
               "Contact Us",
             ].map((link) => (
               <li key={link}>
