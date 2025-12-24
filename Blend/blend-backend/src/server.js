@@ -15,6 +15,7 @@ import messageRoutes from "./routes/messageRoutes.js";
 import equipmentRoutes from "./routes/equipmentRoutes.js";
 import equipmentBookingRoutes from "./routes/equipmentBookingsRoutes.js";
 import reportRoutes from "./routes/reportRoutes.js";
+import teamRoutes from "./routes/teamRoutes.js";
 
 import http from "http";
 import { Server } from "socket.io";
@@ -40,7 +41,9 @@ const startServer = async () => {
     };
     app.use(cors(corsOptions));
 
-    app.use(express.json());
+    // Increase JSON payload limit to 10MB (for large Base64 images)
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
     // Serve static files (uploads)
     app.use(
@@ -62,6 +65,7 @@ const startServer = async () => {
     app.use("/api/equipment", equipmentRoutes);
     app.use("/api/equipment-bookings", equipmentBookingRoutes);
     app.use("/api/reports", reportRoutes);
+    app.use("/api/team", teamRoutes);
 
     // HTTP & Socket.IO setup
     const server = http.createServer(app);
